@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Mode</title>
+    <style>
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .day-mode {
+            background-color: white;
+            color: black;
+        }
+        .night-mode {
+            background-color: black;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #008cba;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #005f5f;
+        }
+    </style>
+</head>
+<body class="day-mode">
+    <button id="modeBtn">Switch to Night Mode</button>
+
+    <script>
+        const modeButton = document.getElementById("modeBtn");
+
+        function changeMode() {
+            const body = document.body;
+
+            if (body.classList.contains("day-mode")) {
+                body.classList.remove("day-mode");
+                body.classList.add("night-mode");
+                modeButton.textContent = "Switch to Day Mode";
+            } else {
+                body.classList.remove("night-mode");
+                body.classList.add("day-mode");
+                modeButton.textContent = "Switch to Night Mode";
+            }
+        }
+
+        modeButton.addEventListener("click", changeMode);
+    </script>
+</body>
+</html>
